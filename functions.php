@@ -63,7 +63,7 @@ if ( 'leafymate' === CURRENT_THEME_NAME ) {
 add_filter('auto_update_plugin', '__return_true');
 
 // allow themes to automatically update.
-add_filter('auto_update_theme', '__return_true');
+//add_filter('auto_update_theme', '__return_true');
 
 // allow WP core updates.
 add_filter('allow_minor_auto_core_updates', '__return_true');
@@ -85,3 +85,7 @@ function leafymate_enqueue_styles() {
 
 add_action( 'wp_enqueue_scripts', 'leafymate_enqueue_styles' ); 
 
+
+// Remove trailing slash from pagination links
+add_filter('paginate_links','untrailingslashit');
+add_filter( 'get_pagenum_link', 'untrailingslashit');
